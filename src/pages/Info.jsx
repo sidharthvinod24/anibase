@@ -42,10 +42,16 @@ const Info = ({ indicator }) => {
     <>
       <div className="overflow-hidden relative w-[100vw] h-[100vw] lg:h-[35vw]">
         <Iframe anime={data} className="opacity-30" />
-        <img
-          className="absolute right-[25%] top-[25%] h-3/4  sm:right-[76%] sm:h-3/4"
-          src={data?.image}
-        ></img>
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          to={`https://anilist.co/anime/${id}`}
+        >
+          <img
+            className="absolute right-[25%] top-[20%] h-3/4  sm:right-[76%] sm:h-3/4 hover:opacity-50 cursor-pointer"
+            src={data?.image}
+          ></img>
+        </Link>
       </div>
       <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-44">
         <div
@@ -59,7 +65,7 @@ const Info = ({ indicator }) => {
           </h1>
           <h1 className="text-[30px]">{data?.title?.romaji}</h1>
         </div>
-        <div className="flex relative flex-row items-center justify-center gap-3 lg:absolute lg:top-28 lg:left-1/4">
+        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 lg:absolute lg:top-28 lg:left-1/4">
           {data?.type && (
             <InfoButton dominantColor={dominantColor}>
               {data?.type === "TV" ? `${data?.type} Show` : data?.type}
@@ -82,7 +88,7 @@ const Info = ({ indicator }) => {
             </InfoButton>
           )}
         </div>
-        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-2 mt-2 lg:mt-0 lg:absolute lg:top-44 lg:left-1/4">
+        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-2 mt-3 lg:mt-0 lg:absolute lg:top-44 lg:left-1/4">
           {data?.genres?.map((genre, index) => (
             <button
               style={{
@@ -109,22 +115,9 @@ const Info = ({ indicator }) => {
           )}
         </p>{" "}
       </div>
-      <div className="hidden lg:block lg:absolute lg:bottom-[30%]  lg:left-1/4 ">
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          to={`https://anilist.co/anime/${id}`}
-          style={{
-            backgroundColor: `${dominantColor}`,
-          }}
-          className="bg-transparent border text-white font-bold py-1 px-4 rounded-full"
-        >
-          See On Anilist
-        </Link>
-      </div>
       <InfoRow data={data} category="relations" />
       <InfoRow data={data} category="recommendations" />
-      <CharacterRow data={data} category="characters" />
+      <CharacterRow data={data} indicator={indicator} category="characters" />
     </>
   );
 };

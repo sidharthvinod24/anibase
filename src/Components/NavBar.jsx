@@ -9,8 +9,8 @@ const NavBar = () => {
   ];
   let [open, setOpen] = useState(false);
   return (
-    <div className="shadow-md w-full fixed top-0 left-0 z-50">
-      <div className="lg:flex items-center justify-between bg-transparent pb-0  lg:py-4 lg:px-10 px-7">
+    <div className="shadow-md w-full fixed top-0 left-0 z-50 ">
+      <div className="lg:flex items-center justify-between bg-transparent pb-0 py-1  lg:py-4 lg:px-10 px-1">
         <div className="flex items-center">
           <img src="/favicon.ico" className="bg-transparent size-12" />
           <Link to="/">
@@ -25,7 +25,7 @@ const NavBar = () => {
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-1 cursor-pointer lg:hidden"
+          className="text-3xl text-white absolute top-4 right-8 overflow-hidden cursor-pointer lg:hidden"
         >
           {open ? <FaWindowClose /> : <FaAlignJustify />}
           {/* <ion-icon name={open ? "close" : "menu"}></ion-icon> */}

@@ -47,7 +47,7 @@ const Row = ({ qKey, rowID, title, fetchUrl }) => {
         )}
         <div
           id={"slider" + rowID}
-          className="w-full pl-7 h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative "
+          className="w-full lg:pl-6 h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative "
         >
           {data.map((data, index) => (
             <Link to={`/anime/${data.id}`}>
