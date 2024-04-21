@@ -32,7 +32,7 @@ const EpisodeRow = ({ data }) => {
         {currentItems.map((page, index) => (
           <div
             key={index}
-            className="flex flex-row gap-2 rounded-md ml-[10%] w-[85%] bg-slate-700 mt-2 text-white p-5"
+            className="flex flex-row gap-2 rounded-md ml-[10%] w-[85%] bg-gray-900 mt-2 text-white p-5"
           >
             <h1>{page?.number}</h1>
             <h1>{page?.title}</h1>
@@ -45,6 +45,7 @@ const EpisodeRow = ({ data }) => {
           nextLabel=">"
           onPageChange={handlePageClick}
           pageRangeDisplayed={2}
+          marginPagesDisplayed={1}
           pageCount={pageCount}
           previousLabel="<"
           renderOnZeroPageCount={null}
