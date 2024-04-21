@@ -42,8 +42,10 @@ const requests = {
     requestNextSeason: `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?season=${nextSeason}&year=${year}`,
     requestTopAnime: 'https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?sort=["SCORE_DESC"]',
     requestPopularAnime: 'https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?sort=["POPULARITY_DESC"]',
-    requestAnimeByID: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}`,
+    requestAnimeByID: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}?provider=zoro`,
     requestMangaByID: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist-manga/info/${query}?provider=mangahere`,
+
+
     // requestRelatedImageByID: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}`
 
     // requestSearch:`https://my-consumet-api.vercel.app/anime/gogoanime/${query}?page=${pageNumber}`

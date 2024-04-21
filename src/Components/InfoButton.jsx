@@ -1,6 +1,6 @@
 import React from "react";
 
-const InfoButton = ({ children, dominantColor }) => (
+const InfoButton = ({ children, dominantColor = "white" }) => (
   <div
     style={{
       backgroundColor: `${dominantColor}`,

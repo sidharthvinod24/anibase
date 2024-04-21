@@ -5,7 +5,7 @@ const AnimeRow = ({ data, showType = false }) => {
     <>
       <div className="pr-1 hover:transition-all hover:scale-[1.09] relative inline-block rounded-lg overflow-hidden cursor-pointer m-2 ">
         <img
-          className="h-[190px] w-[135px] lg:h-[265px] lg:w-[185px]  block object-cover object-center "
+          className="h-[185px] w-[135px] lg:h-[265px] lg:w-[185px]  block object-cover object-center "
           src={data?.image}
           alt={data.id}
           loading="lazy"

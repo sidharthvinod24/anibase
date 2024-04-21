@@ -16,9 +16,9 @@ const CharacterRow = ({ data, category, indicator }) => {
             <h1 className="text-base">{actor?.name?.userPreferred}</h1>
             <h1 className="mt-auto text-base">{actor?.language}</h1>
           </div>
-          <LazyLoad width={100}>
+          <LazyLoad>
             <img
-              className="h-[100px] w-[100px] lg:h-[180px] lg:w-[125px] object-cover object-center mb-2"
+              className="w-[60px] h-[82.3px] lg:h-[180px] lg:w-[125px] object-cover object-center mb-2"
               src={actor?.image}
               alt={actor?.id}
               loading="lazy"
@@ -43,9 +43,9 @@ const CharacterRow = ({ data, category, indicator }) => {
             key={index}
             className="flex flex-row gap-3 justify-between bg-gray-900"
           >
-            <LazyLoad width={100}>
+            <LazyLoad>
               <img
-                className="h-[100px] w-[100px] lg:h-[180px] lg:w-[125px] object-cover object-center"
+                className="w-[60px] h-[82.3px] lg:h-[180px] lg:w-[125px] object-cover object-center"
                 src={item?.image}
                 alt={item?.id}
                 loading="lazy"

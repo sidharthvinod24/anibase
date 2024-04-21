@@ -11,6 +11,7 @@ import InfoRow from "../Components/InfoRow";
 import Loading from "../Components/Loading";
 import { useFetchMangaDataByID } from "../Hooks/mangaDataById";
 import CharacterRow from "../Components/CharacterRow";
+import Episodes from "../Components/Episodes";
 const Info = ({ indicator }) => {
   const { id } = useParams();
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -113,11 +114,17 @@ const Info = ({ indicator }) => {
               {showFullDescription ? "less" : "more"}
             </button>
           )}
-        </p>{" "}
+        </p>
       </div>
+      <Episodes
+        data={data}
+        category="episodes"
+        nextEp={data?.nextAiringEpisode}
+      />
       <InfoRow data={data} category="relations" />
-      <InfoRow data={data} category="recommendations" />
       <CharacterRow data={data} indicator={indicator} category="characters" />
+
+      <InfoRow data={data} category="recommendations" />
     </>
   );
 };

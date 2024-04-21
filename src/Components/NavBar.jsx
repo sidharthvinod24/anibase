@@ -16,9 +16,9 @@ const NavBar = () => {
           <Link to="/">
             <h1
               className="font-bold text-2xl cursor-pointer
-    text-red-800 font-body"
+    text-red-800 font-body uppercase"
             >
-              Akuma
+              Anibase
             </h1>
           </Link>
         </div>
