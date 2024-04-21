@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Info from "./pages/Info";
 import NotFoundPage from "./pages/NotFoundPage";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <SpeedInsights />
     </>
   );
 }
