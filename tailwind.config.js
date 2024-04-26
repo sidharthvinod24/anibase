@@ -9,5 +9,6 @@ export default {
       fontFamily: {
         body:['Montserrat']
     }},
-  }
+  },
+  plugins: [require("daisyui")]
 }

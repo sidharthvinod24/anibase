@@ -1,6 +1,8 @@
 import React from "react";
 import InfoButton from "./InfoButton";
 import { useEffect, useState } from "react";
+import { useFetchEpisodesByID } from "../Hooks/episodesById";
+
 import EpisodeRow from "./EpisodeRow";
 function calculateCountdown(targetTimestamp) {
   if (targetTimestamp === null || targetTimestamp === undefined) {
@@ -22,6 +24,8 @@ function calculateCountdown(targetTimestamp) {
 
 const Episodes = ({ data, category, nextEp }) => {
   const targetTimestamp = nextEp?.airingTime;
+  const { status: epStatus, data: epData } = useFetchEpisodesByID(data?.id);
+
   const [countdown, setCountdown] = useState(
     calculateCountdown(targetTimestamp)
   );
@@ -36,24 +40,28 @@ const Episodes = ({ data, category, nextEp }) => {
 
   return (
     <>
-      <div className="flex items-center mt-10  space-x-4">
-        <h1 className="capitalize text-white relative left-14 lg:left-28 font-bold w-64 font-body text-3xl">
-          {category}
-        </h1>
-        {countdown && (
-          <>
-            <span className="text-black text-xl">
-              <InfoButton>
-                Ep {nextEp?.episode}: {countdown.days ? countdown.days : 0}d{" "}
-                {countdown.hours ? countdown.hours : 0}h{" "}
-                {countdown.minutes ? countdown.minutes : 0}m{" "}
-                {countdown.seconds ? countdown.seconds : 0}s
-              </InfoButton>
-            </span>
-          </>
-        )}
-      </div>
-      <EpisodeRow data={data} />
+      {data?.episodes && (
+        <>
+          <div className="flex items-center mt-10  space-x-4">
+            <h1 className="capitalize text-white relative left-14 lg:left-28 font-bold w-64 font-body text-3xl">
+              {category}
+            </h1>
+            {countdown && (
+              <>
+                <span className="text-black text-xl">
+                  <InfoButton>
+                    Ep {nextEp?.episode}: {countdown.days ? countdown.days : 0}d{" "}
+                    {countdown.hours ? countdown.hours : 0}h{" "}
+                    {countdown.minutes ? countdown.minutes : 0}m{" "}
+                    {countdown.seconds ? countdown.seconds : 0}s
+                  </InfoButton>
+                </span>
+              </>
+            )}
+          </div>
+          <EpisodeRow id={data?.id} data={epData} status={epStatus} />
+        </>
+      )}
     </>
   );
 };
