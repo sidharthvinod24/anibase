@@ -12,6 +12,7 @@ import Loading from "../Components/Loading";
 import { useFetchMangaDataByID } from "../Hooks/mangaDataById";
 import CharacterRow from "../Components/CharacterRow";
 import Episodes from "../Components/Episodes";
+import MoreInfo from "../Components/MoreInfo";
 const Info = ({ indicator }) => {
   const { id } = useParams();
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -49,24 +50,26 @@ const Info = ({ indicator }) => {
           to={`https://anilist.co/anime/${id}`}
         >
           <img
-            className="absolute right-[25%] top-[20%] h-3/4  sm:right-[76%] sm:h-3/4 hover:opacity-50 cursor-pointer"
+            className="absolute right-[23%] top-[20%] h-3/4 w-[60%]  sm:right-[76%] sm:h-3/4 sm:w-[20%]  hover:opacity-50 cursor-pointer"
             src={data?.image}
           ></img>
         </Link>
       </div>
-      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-44">
+      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-32 xl:top-36">
         <div
           style={{
             color: `${dominantColor}`,
           }}
           className="lg:absolute lg:-top-[30%] lg:left-1/4"
         >
-          <h1 className="mt-1 text-[35px] ">
-            {data?.season?.toUpperCase()} {data?.releaseDate}
-          </h1>
-          <h1 className="text-[30px]">{data?.title?.romaji}</h1>
+          <div className="flex flex-col">
+            <h1 className="-mt-6 text-[35px] ">
+              {data?.season?.toUpperCase()} {data?.releaseDate}
+            </h1>
+            <h1 className="text-[30px]">{data?.title?.romaji}</h1>
+          </div>
         </div>
-        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 lg:absolute lg:top-28 lg:left-1/4">
+        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 lg:absolute lg:top-36 lg:left-1/4">
           {data?.type && (
             <InfoButton dominantColor={dominantColor}>
               {data?.type === "TV" ? `${data?.type} Show` : data?.type}
@@ -89,22 +92,8 @@ const Info = ({ indicator }) => {
             </InfoButton>
           )}
         </div>
-        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-2 mt-3 lg:mt-0 lg:absolute lg:top-44 lg:left-1/4">
-          {data?.genres?.map((genre, index) => (
-            <button
-              style={{
-                backgroundColor: `${dominantColor}`,
-              }}
-              key={index}
-              className="bg-transparent border text-white font-bold py-1 px-1 rounded-full"
-            >
-              {genre}
-            </button>
-          ))}
-        </div>
-        <br></br>
-        <br></br>
-        <p className="relative bottom-2 left-1 overflow-hidden text-left text-white font-body text-lg font-light lg:text-md lg:absolute lg:top-56 lg:overflow-y-scroll lg:left-1/4 lg:w-[70%] lg:h-[8.5vw]">
+
+        <p className="relative -bottom-2 left-1 overflow-hidden text-left text-white font-body text-lg font-light lg:text-md lg:absolute lg:top-52 lg:overflow-y-scroll lg:left-1/4 lg:w-[70%] lg:h-[8.5vw]">
           {description}
           {description?.length > 400 && (
             <button
@@ -116,6 +105,7 @@ const Info = ({ indicator }) => {
           )}
         </p>
       </div>
+      <MoreInfo data={data} dominantColor={dominantColor} />
       <Episodes
         data={data}
         category="episodes"

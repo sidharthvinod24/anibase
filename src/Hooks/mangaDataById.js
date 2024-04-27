@@ -2,24 +2,20 @@ import {useQuery} from '@tanstack/react-query'
 import requests from "../Requests";
 import axios  from "axios";
 // import NotFoundPage from '../pages/NotFoundPage';
-
+const mangaProviders = ['mangadex','mangahere','mangakakalot','mangapark','mangapill','mangareader','mangasee123']
 const fetchMangaDataByID = async (id) =>{
-    try {
-        const response = await axios.get(requests.requestMangaByID(id))
-        const data = response.data
-            if (data?.title?.romaji === null){
-                return { 
-                    error: "Not Available"
-                };
+    for (const provider of mangaProviders) {
+        try {
+            const response = await axios.get(requests.requestMangaByID(id, provider));
+            const data = response.data;
+            if (data && data.title && data.title.romaji) {
+                return data; // Return the first non-null data
             }
-            else{
-                return data
-        
-            }
-    } catch (error) {
-        return {error: error}
+        } catch (error) {
+            console.error(`Error fetching data with provider ${provider}:`, error);
+        }
     }
-
+    return { error: "Not Available" }; 
 }
 
 

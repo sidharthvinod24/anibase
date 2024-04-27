@@ -9,7 +9,7 @@ const Iframe = ({ anime, className }) => {
     <>
       {anime?.trailer?.id != null && !vidError ? (
         <ReactPlayer
-          className={`z-0 scale-[1.75] object-cover pointer-events-none cursor-none brightness-50 ${className}`}
+          className={`-z-50 scale-[1.75] object-cover pointer-events-none cursor-none brightness-50 ${className}`}
           playing={true}
           loop={true}
           pip={false}

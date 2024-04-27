@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useFetchEpisodesByID } from "../Hooks/episodesById";
 
 import EpisodeRow from "./EpisodeRow";
+import CountDown from "./CountDown";
 function calculateCountdown(targetTimestamp) {
   if (targetTimestamp === null || targetTimestamp === undefined) {
     return null;
@@ -43,19 +44,12 @@ const Episodes = ({ data, category, nextEp }) => {
       {data?.episodes && (
         <>
           <div className="flex items-center mt-10  space-x-4">
-            <h1 className="capitalize text-white relative left-14 lg:left-28 font-bold w-64 font-body text-3xl">
+            <h1 className="capitalize text-white relative left-5 lg:left-28 font-bold w-64 font-body text-3xl">
               {category}
             </h1>
             {countdown && (
               <>
-                <span className="text-black text-xl">
-                  <InfoButton>
-                    Ep {nextEp?.episode}: {countdown.days ? countdown.days : 0}d{" "}
-                    {countdown.hours ? countdown.hours : 0}h{" "}
-                    {countdown.minutes ? countdown.minutes : 0}m{" "}
-                    {countdown.seconds ? countdown.seconds : 0}s
-                  </InfoButton>
-                </span>
+                <CountDown countdown={countdown} nextEp={nextEp} />
               </>
             )}
           </div>

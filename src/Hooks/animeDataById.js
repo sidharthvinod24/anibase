@@ -12,11 +12,11 @@ const fetchAnimeDataByID = async (id) =>{
                     error: "Not suitable for display"
                 };
             }
-            else if (data?.description === null || (data?.description).length <= 20){
-                return { 
-                    error: "Not Available"
-                };
-            }
+            // else if (data?.description === null || (data?.description).length <= 20){
+            //     return { 
+            //         error: "Not Available"
+            //     };
+            // }
             else{
                 return data
         
