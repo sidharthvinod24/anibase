@@ -2,41 +2,30 @@ import React from "react";
 
 const CountDown = ({ countdown, nextEp }) => {
   return (
-    <div className="flex gap-2 font-body text-xl mt-2 w-auto font-bold text-white  ">
-      <h1 className=" text-xl">Ep {nextEp?.episode}:</h1>
-
-      <div>
-        <span className="countdown">
-          <span
-            style={{ "--value": countdown.days ? countdown.days : 0 }}
-          ></span>
-        </span>
+    <div className="flex flex-row gap-2 font-body text-xl mt-2 w-auto font-bold text-white  ">
+      <span className="text-nowrap -mt-1">Ep {nextEp?.episode}:</span>
+      <span className="countdown">
+        <span style={{ "--value": countdown.days ? countdown.days : 0 }}></span>
         d
-      </div>
-      <div>
-        <span className="countdown ">
-          <span
-            style={{ "--value": countdown.hours ? countdown.hours : 0 }}
-          ></span>
-        </span>
+      </span>
+      <span className="countdown ">
+        <span
+          style={{ "--value": countdown.hours ? countdown.hours : 0 }}
+        ></span>
         h
-      </div>
-      <div>
-        <span className="countdown ">
-          <span
-            style={{ "--value": countdown.minutes ? countdown.minutes : 0 }}
-          ></span>
-        </span>
+      </span>
+      <span className="countdown ">
+        <span
+          style={{ "--value": countdown.minutes ? countdown.minutes : 0 }}
+        ></span>
         m
-      </div>
-      <div>
-        <span className="countdown ">
-          <span
-            style={{ "--value": countdown.seconds ? countdown.seconds : 0 }}
-          ></span>
-        </span>
+      </span>
+      <span className="countdown ">
+        <span
+          style={{ "--value": countdown.seconds ? countdown.seconds : 0 }}
+        ></span>
         s
-      </div>
+      </span>
     </div>
   );
 };
