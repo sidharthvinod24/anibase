@@ -27,30 +27,30 @@ const BgVideo = ({ qKey, fetchUrl }) => {
         <Iframe anime={anime} />
       </div>
       <div className="absolute bottom-[5%] lg:top-[40%] top-[12%] lg:bottom-[50%] text-white  mx-4 lg:mx-12 font-body">
-        <div className="flex flex-col text-3xl lg:text-[45px] h-full lg:w-auto left-10 font-bold drop-shadow-xl">
-          <p className="max-w-5xl">
+        <div className="flex flex-col text-2xl lg:text-[45px] h-full lg:w-auto left-10 font-bold drop-shadow-xl">
+          <p className="max-w-full lg:max-w-5xl">
             {anime?.title?.romaji?.length > 50
               ? anime?.title?.english
               : anime?.title?.romaji}
           </p>
           <div className="flex flex-row gap-5 mt-5">
             {anime?.rating && (
-              <p className=" flex badge text-white font-body text-xl badge-lg badge-success ">
+              <p className=" flex badge text-white font-body text-lg badge-lg badge-success ">
                 {anime?.rating}%
               </p>
             )}
             {anime?.releaseDate && (
-              <p className=" flex badge text-white font-body text-xl badge-lg badge-primary ">
+              <p className=" flex badge text-white font-body text-lg badge-lg badge-primary ">
                 {anime?.releaseDate}
               </p>
             )}
             {anime?.status && (
-              <p className=" flex badge text-white font-body text-xl badge-lg badge-primary ">
+              <p className=" flex badge text-white font-body text-lg badge-lg badge-primary ">
                 {anime?.status}
               </p>
             )}
           </div>
-          <p className="text-lg lg:text-xl mt-3 lg:mt-4 max-w-full lg:w-[70%] drop-shadow-x">
+          <p className="text-base lg:text-xl mt-3 lg:mt-4 max-w-full lg:w-[70%] drop-shadow-x">
             {truncateString(
               anime?.description?.replace(/<br>|<i>|<\/i>/g, ""),
               200
