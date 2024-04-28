@@ -34,28 +34,28 @@ const EpisodeRow = ({ id, data, status, gogoanimeMapping }) => {
     <>
       <div className="grid grid-cols-1 gap-6 lg:mx-32 mx-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10">
         {currentItems?.map((episode) => (
-          <Link
-            to={`/watch/${id}?episode=${episode.number}&m=${gogoanimeMapping}-episode-${episode.number}`}
+          // <Link
+          //   to={`/watch/${id}?episode=${episode.number}&m=${gogoanimeMapping}-episode-${episode.number}`}
+          // >
+          <div
+            key={episode?.id}
+            className="card w-45 bg-base-100 shadow-xl hover:outline outline-4 outline-offset-2 "
           >
-            <div
-              key={episode?.id}
-              className="card w-45 bg-base-100 shadow-xl hover:outline outline-4 outline-offset-2 "
-            >
-              <figure>
-                <img
-                  className="w-[100%] h-[125px] object-cover"
-                  loading="lazy"
-                  src={episode?.image}
-                  alt={`Episode ${episode?.number} Image`}
-                />
-              </figure>
-              <div className="card-body p-0">
-                <div className="card-title font-body text-sm text-white font-bold text-wrap">
-                  {episode?.title || `Episode ${episode?.number}`}
-                </div>
+            <figure>
+              <img
+                className="w-[100%] h-[125px] object-cover"
+                loading="lazy"
+                src={episode?.image}
+                alt={`Episode ${episode?.number} Image`}
+              />
+            </figure>
+            <div className="card-body p-0">
+              <div className="card-title font-body text-sm text-white font-bold text-wrap">
+                {episode?.title || `Episode ${episode?.number}`}
               </div>
             </div>
-          </Link>
+          </div>
+          // </Link>
         ))}
       </div>
       <ReactPaginate
