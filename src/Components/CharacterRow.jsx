@@ -41,7 +41,7 @@ const CharacterRow = ({ data, category, indicator }) => {
 
   return (
     <>
-      <h1 className="capitalize text-white relative mt-10 left-5 lg:left-28 font-bold w-64 font-body text-3xl">
+      <h1 className="capitalize text-white relative mt-10 left-5 lg:left-28 font-bold w-64 font-body text-xl  lg:text-3xl">
         {category}
       </h1>
       <div className="grid gap-2 lg:gap-4 grid-cols-1 text-xs lg:text-sm lg:grid-cols-3 mt-1 font-bold lg:pl-20 ml-5 text-white font-body">

@@ -55,10 +55,10 @@ const BgVideo = ({ qKey, fetchUrl }) => {
               anime?.description?.replace(/<br>|<i>|<\/i>/g, ""),
               100
             )}
-          </p>{" "}
-          <div className="lg:mt-10 lg:-bottom-1/3 relative -bottom-[5%]">
+          </p>
+          <div className="lg:mt-10 lg:-bottom-1/3 relative">
             <Link to={`/anime/${anime?.id}`}>
-              <button className="btn btn-md glass text-white btn-wide text-sm md:text-base lg:text-lg ">
+              <button className="btn btn-md glass text-white  text-sm md:text-base lg:text-lg ">
                 Watch Now
               </button>
             </Link>

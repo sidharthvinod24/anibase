@@ -3,8 +3,10 @@ import ReactPaginate from "react-paginate";
 import { useFetchEpisodesByID } from "../Hooks/episodesById";
 import Loading from "./Loading";
 import NotFoundPage from "../pages/NotFoundPage";
+import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 
-const EpisodeRow = ({ id, data, status }) => {
+const EpisodeRow = ({ id, data, status, gogoanimeMapping }) => {
   if (status === "pending") {
     return (
       <>
@@ -27,26 +29,33 @@ const EpisodeRow = ({ id, data, status }) => {
   const handlePageClick = (selectedPage) => {
     setCurrentPage(selectedPage);
   };
-
+  console.log(gogoanimeMapping);
   return (
     <>
       <div className="grid grid-cols-1 gap-6 lg:mx-32 mx-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10">
         {currentItems?.map((episode) => (
-          <div key={episode?.id} className="card w-45 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                className="w-[100%] h-[125px] object-cover"
-                loading="lazy"
-                src={episode?.image}
-                alt={`Episode ${episode?.number} Image`}
-              />
-            </figure>
-            <div className="card-body p-0">
-              <div className="card-title font-body font-bold text-wrap">
-                {episode?.title || `Episode ${episode?.number}`}
+          <Link
+            to={`/watch/${id}?episode=${episode.number}&m=${gogoanimeMapping}-episode-${episode.number}`}
+          >
+            <div
+              key={episode?.id}
+              className="card w-45 bg-base-100 shadow-xl hover:outline outline-4 outline-offset-2 "
+            >
+              <figure>
+                <img
+                  className="w-[100%] h-[125px] object-cover"
+                  loading="lazy"
+                  src={episode?.image}
+                  alt={`Episode ${episode?.number} Image`}
+                />
+              </figure>
+              <div className="card-body p-0">
+                <div className="card-title font-body text-sm text-white font-bold text-wrap">
+                  {episode?.title || `Episode ${episode?.number}`}
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <ReactPaginate

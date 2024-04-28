@@ -62,7 +62,7 @@ const Info = ({ indicator }) => {
           }}
           className="lg:absolute lg:-top-[30%] lg:left-1/4"
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col ">
             <h1 className="-mt-6 text-[35px] ">
               {data?.season?.toUpperCase()} {data?.releaseDate}
             </h1>

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Info from "./pages/Info";
 import NotFoundPage from "./pages/NotFoundPage";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import WatchPage from "./pages/WatchPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/anime/:id" element={<Info indicator={"anime"} />} />
         <Route path="/manga/:id" element={<Info indicator={"manga"} />} />
+        {/* <Route path="/watch/:id" element={<WatchPage />} /> */}
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
