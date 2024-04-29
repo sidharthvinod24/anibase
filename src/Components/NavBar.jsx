@@ -4,15 +4,15 @@ import React, { useState } from "react";
 import { FaAlignJustify, FaWindowClose } from "react-icons/fa";
 const NavBar = () => {
   return (
-    <div className="navbar lg:sticky backdrop-filter  bg-opacity-30 backdrop-blur-lg bg-base-300 top-0 z-10 ">
+    <div className="navbar lg:sticky lg:backdrop-filter  lg:bg-opacity-30 lg:backdrop-blur-lg  lg:bg-base-300 lg:top-0 lg:z-10 ">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <div className="dropdown ">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden ">
             <FaAlignJustify />
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52 "
           >
             <li>
               <a>This Season</a>

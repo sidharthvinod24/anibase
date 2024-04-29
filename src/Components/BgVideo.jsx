@@ -32,7 +32,6 @@ const BgVideo = ({ qKey, fetchUrl }) => {
             {anime?.title?.romaji?.length > 50
               ? anime?.title?.english
               : anime?.title?.romaji}
-              Hi R
           </p>
           <div className="flex flex-row gap-5 mt-5">
             {anime?.rating && (
