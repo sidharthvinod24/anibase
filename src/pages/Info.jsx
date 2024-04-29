@@ -55,7 +55,7 @@ const Info = ({ indicator }) => {
           ></img>
         </Link>
       </div>
-      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-32 xl:top-36">
+      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-40 xl:top-52">
         <div
           style={{
             color: `${dominantColor}`,
@@ -69,7 +69,7 @@ const Info = ({ indicator }) => {
             <h1 className="text-[30px]">{data?.title?.romaji}</h1>
           </div>
         </div>
-        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 lg:absolute lg:top-36 lg:left-1/4">
+        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 lg:absolute lg:top-24 xl:top-36 lg:left-1/4">
           {data?.type && (
             <InfoButton dominantColor={dominantColor}>
               {data?.type === "TV" ? `${data?.type} Show` : data?.type}
@@ -93,7 +93,7 @@ const Info = ({ indicator }) => {
           )}
         </div>
 
-        <p className="relative -bottom-2 left-1 overflow-hidden text-left text-white font-body text-lg font-light lg:text-md lg:absolute lg:top-52 lg:overflow-y-scroll lg:left-1/4 lg:w-[70%] lg:h-[8.5vw]">
+        <p className="relative -bottom-2 left-1 overflow-hidden text-left text-white font-body text-lg font-light lg:text-md lg:absolute lg:top-36 xl:top-52 lg:overflow-y-scroll lg:left-1/4 lg:w-[70%] lg:h-[8.5vw]">
           {description}
           {description?.length > 400 && (
             <button

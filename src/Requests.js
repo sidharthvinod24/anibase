@@ -45,7 +45,6 @@ const requests = {
     requestAnimeByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}?provider=${provider}`,
     requestMangaByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist-manga/info/${query}?provider=${provider}`,
     requestEpisodesByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/episodes/${query}?provider=${provider}`,
-    requestEpisodeLink: (mapping) => `https://anime-api-nine-ochre.vercel.app/anime/gogoanime/watch/${mapping}`
 
 
     // requestRelatedImageByID: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}`

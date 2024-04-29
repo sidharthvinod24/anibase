@@ -41,6 +41,7 @@ function calculateExpectedDate(targetTimestamp) {
 const Episodes = ({ data, category, nextEp }) => {
   const targetTimestamp = nextEp?.airingTime;
   console.log();
+
   const gogoanimeMapping = data?.mappings
     ?.find((element) => element.providerId === "gogoanime") // Assuming each element is an object with a 'name' property
     ?.id?.replace(/^\/category\//, "");
@@ -80,12 +81,7 @@ const Episodes = ({ data, category, nextEp }) => {
               </>
             )}
           </div>
-          <EpisodeRow
-            id={data?.id}
-            data={epData}
-            status={epStatus}
-            gogoanimeMapping={gogoanimeMapping}
-          />
+          <EpisodeRow id={data?.id} data={epData} status={epStatus} />
         </>
       )}
     </>

@@ -3,14 +3,25 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { FaAlignJustify, FaWindowClose } from "react-icons/fa";
 const NavBar = () => {
-  let Navigation = [
-    { name: "This Season", link: "/" },
-    { name: "Browse Anime", link: "/" },
-  ];
-  let [open, setOpen] = useState(false);
   return (
-    <div className="shadow-md w-full fixed top-0 left-0 z-50 ">
-      <div className="lg:flex items-center justify-between bg-transparent pb-0 py-1  lg:py-4 lg:px-10 px-1">
+    <div className="navbar lg:sticky backdrop-filter  bg-opacity-30 backdrop-blur-lg bg-base-300 top-0 z-10 ">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <FaAlignJustify />
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a>This Season</a>
+            </li>
+            <li>
+              <a>Browse Anime</a>
+            </li>
+          </ul>
+        </div>
         <div className="flex items-center">
           <img src="/favicon.ico" className="bg-transparent size-12" />
           <Link to="/">
@@ -22,32 +33,34 @@ const NavBar = () => {
             </h1>
           </Link>
         </div>
-
-        <div
-          onClick={() => setOpen(!open)}
-          className="text-3xl text-white absolute top-4 right-8 overflow-hidden cursor-pointer lg:hidden"
-        >
-          {open ? <FaWindowClose /> : <FaAlignJustify />}
-          {/* <ion-icon name={open ? "close" : "menu"}></ion-icon> */}
-        </div>
-
-        <ul
-          className={`lg:flex lg:items-center lg:pb-0 text-right  -ml-[55px]  absolute lg:static bg-transparent lg:z-auto z-[-1] w-full lg:w-auto lg:pl-0  transition-all duration-500 ease-in ${
-            open ? "top-6 " : "hidden"
-          }`}
-        >
-          {Navigation.map((link) => (
-            <li key={link.name} className="lg:ml-8 lg:text-lg lg:my-0 my-5">
-              <a
-                href={link.link}
-                className="text-white mr-1 hover:text-gray-400 duration-500"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-          {/* <Button>Get Started</Button> */}
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <a>This Season</a>
+          </li>
+          <li>
+            <a>Browse Anime</a>
+          </li>
         </ul>
+      </div>
+      <div className="navbar-end">
+        <button className="btn btn-ghost btn-circle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );

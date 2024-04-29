@@ -6,7 +6,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 
-const EpisodeRow = ({ id, data, status, gogoanimeMapping }) => {
+const EpisodeRow = ({ id, data, status }) => {
   if (status === "pending") {
     return (
       <>
@@ -29,14 +29,10 @@ const EpisodeRow = ({ id, data, status, gogoanimeMapping }) => {
   const handlePageClick = (selectedPage) => {
     setCurrentPage(selectedPage);
   };
-  console.log(gogoanimeMapping);
   return (
     <>
       <div className="grid grid-cols-1 gap-6 lg:mx-32 mx-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10">
         {currentItems?.map((episode) => (
-          // <Link
-          //   to={`/watch/${id}?episode=${episode.number}&m=${gogoanimeMapping}-episode-${episode.number}`}
-          // >
           <div
             key={episode?.id}
             className="card w-45 bg-base-100 shadow-xl hover:outline outline-4 outline-offset-2 "
@@ -55,7 +51,6 @@ const EpisodeRow = ({ id, data, status, gogoanimeMapping }) => {
               </div>
             </div>
           </div>
-          // </Link>
         ))}
       </div>
       <ReactPaginate
