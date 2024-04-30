@@ -17,6 +17,7 @@ const Info = ({ indicator }) => {
   const { id } = useParams();
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [dominantColor, setDominantColor] = useState(null);
+
   const fetchData =
     indicator === "anime" ? useFetchAnimeDataByID : useFetchMangaDataByID;
 
@@ -39,23 +40,32 @@ const Info = ({ indicator }) => {
     setDominantColor(color);
   });
 
+  const linkType = (type, id) => {
+    if (type === "MANGA" || type === "ONE_SHOT" || type === "NOVEL") {
+      return `https://anilist.co/manga/${id}`;
+    } else {
+      return `https://anilist.co/anime/${id}`;
+    }
+  };
+
   console.log(dominantColor);
   return (
     <>
       <div className="overflow-hidden relative w-[100vw] h-[100vw] lg:h-[35vw]">
         <Iframe anime={data} className="opacity-30" />
+
         <Link
           target="_blank"
           rel="noopener noreferrer"
-          to={`https://anilist.co/anime/${id}`}
+          to={linkType(data?.type, id)}
         >
           <img
-            className="absolute right-[23%] top-[20%] h-3/4 w-[60%]  sm:right-[76%] sm:h-3/4 sm:w-[20%]  hover:opacity-50 cursor-pointer"
+            className=" mask mask-parallelogram-3 absolute right-[23%] top-[20%] h-3/4 w-[60%]  sm:right-[76%] sm:h-3/4 sm:w-[20%]  hover:opacity-50 cursor-pointer"
             src={data?.image}
           ></img>
         </Link>
       </div>
-      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-40 xl:top-52">
+      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-40 xl:top-[25%] 2xl:top-[30%]">
         <div
           style={{
             color: `${dominantColor}`,
@@ -69,7 +79,7 @@ const Info = ({ indicator }) => {
             <h1 className="text-[30px]">{data?.title?.romaji}</h1>
           </div>
         </div>
-        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 lg:absolute lg:top-24 xl:top-36 lg:left-1/4">
+        <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 text-nowrap lg:absolute lg:top-24 xl:top-36 lg:left-1/4">
           {data?.type && (
             <InfoButton dominantColor={dominantColor}>
               {data?.type === "TV" ? `${data?.type} Show` : data?.type}

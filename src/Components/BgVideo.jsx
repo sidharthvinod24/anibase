@@ -23,29 +23,29 @@ const BgVideo = ({ qKey, fetchUrl }) => {
   const anime = filteredData[Math.floor(Math.random() * filteredData.length)];
   return (
     <>
-      <div className="overflow-hidden relative h-[90vw] lg:h-[45vw]">
+      <div className="overflow-hidden relative h-[90vw] lg:h-[40vw]">
         <Iframe anime={anime} />
       </div>
-      <div className="absolute bottom-[5%] lg:top-[40%] top-[12%] lg:bottom-[50%] text-white  mx-4 lg:mx-12 font-body">
-        <div className="flex flex-col text-2xl lg:text-[45px] h-full lg:w-auto left-10 font-bold drop-shadow-xl">
-          <p className="max-w-full lg:max-w-5xl">
+      <div className="absolute bottom-[5%] lg:top-[20%] xl:top-[40%] top-[12%] lg:bottom-[50%] text-white  mx-4 lg:mx-20 font-body">
+        <div className=" flex flex-col text-lg lg:text-2xl xl:text-[45px] h-full lg:w-auto left-10 font-bold drop-shadow-xl">
+          <p className="max-w-full lg:max-w-2xl xl:max-w-6xl">
             {anime?.title?.romaji?.length > 50
-              ? anime?.title?.english
+              ? truncateString(anime?.title?.english, 40)
               : anime?.title?.romaji}
           </p>
           <div className="flex flex-row gap-5 mt-5">
             {anime?.rating && (
-              <p className=" flex badge text-white font-body text-lg badge-lg badge-success ">
+              <p className=" flex badge text-white font-body text-xs lg:text-sm xl:text-lg badge-lg badge-success ">
                 {anime?.rating}%
               </p>
             )}
             {anime?.releaseDate && (
-              <p className=" flex badge text-white font-body text-lg badge-lg badge-primary ">
+              <p className=" flex badge text-white font-body text-xs lg:text-sm xl:text-lg badge-primary ">
                 {anime?.releaseDate}
               </p>
             )}
             {anime?.status && (
-              <p className=" flex badge text-white font-body text-lg badge-lg badge-primary ">
+              <p className=" flex badge text-white font-body text-xs lg:text-sm xl:text-lg badge-primary ">
                 {anime?.status}
               </p>
             )}
@@ -56,7 +56,7 @@ const BgVideo = ({ qKey, fetchUrl }) => {
               100
             )}
           </p>
-          <div className="lg:mt-10 lg:-bottom-1/3 relative">
+          <div className="lg:mt-10  xl:-bottom-1/3 relative">
             <Link to={`/anime/${anime?.id}`}>
               <button className="btn btn-md glass text-white  text-sm md:text-base lg:text-lg ">
                 Watch Now
@@ -66,7 +66,7 @@ const BgVideo = ({ qKey, fetchUrl }) => {
         </div>
       </div>
       <img
-        className=" mask mask-squircle absolute left-[72%] -translate-y-[105%] h-3/4 hidden lg:block"
+        className=" mask mask-squircle absolute left-[72%] translate-y-[15%] lg:h-[50%] xl:h-3/4 hidden lg:block"
         src={anime?.image}
       ></img>
     </>

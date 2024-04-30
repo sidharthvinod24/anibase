@@ -7,10 +7,11 @@ import Home from "./pages/Home";
 import Info from "./pages/Info";
 import NotFoundPage from "./pages/NotFoundPage";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <>
+    <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,8 +20,9 @@ function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer />
       <SpeedInsights />
-    </>
+    </div>
   );
 }
 

@@ -20,3 +20,9 @@ body {
   scrollbar-width: none;  /* Firefox */
   transition: .5s;
 }
+
+.App {
+  min-height: 200vh;
+  display: flex;
+  flex-direction: column;
+}
