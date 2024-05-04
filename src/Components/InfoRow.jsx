@@ -18,7 +18,7 @@ const InfoRow = ({ data, category, search = false }) => {
           <h1 className="capitalize text-white relative  mt-10 left-5 lg:left-28 font-bold w-64 font-body text-xl lg:text-3xl">
             {category}
           </h1>
-          <div className="grid lg:gap-2 grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 ml-5 lg:px-20">
+          <div className="grid lg:gap-2 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 ml-5 lg:px-20">
             {results.map((item, index) => (
               <React.Fragment key={index}>
                 {item?.type === "MANGA" ||

@@ -193,7 +193,7 @@ const Search = () => {
           ]}
         />
       </div>
-      <div className="grid grid-cols-3 gap-6 lg:mt-12 lg:ml-24 sm:grid-cols-4  md:grid-cols-5 lg:grid-cols-6 text-white  ">
+      <div className="grid grid-cols-2 gap-6 lg:mt-12 lg:ml-24 sm:grid-cols-4  md:grid-cols-5 lg:grid-cols-6 text-white  ">
         <div className="flex flex-col">
           <p className="">Search</p>
           <input
