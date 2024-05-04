@@ -24,12 +24,12 @@ const BgVideo = ({ qKey, fetchUrl }) => {
   return (
     <>
       <div className="overflow-hidden relative h-[100vh] md:h-[90vh] lg:h-[60vh] xl:h-[100vh] ">
-        <Iframe anime={anime} />
+        <Iframe anime={anime} indicator={false} />
       </div>
       <div className="absolute lg:top-[20%] xl:top-[65%] top-[65%] lg:bottom-[50%] text-white  mx-4 lg:mx-20 font-body">
         <div className=" flex flex-col text-[30px] lg:text-2xl xl:text-[45px] h-full lg:w-auto left-10 font-bold drop-shadow-xl">
           <h1 className="max-w-full  lg:max-w-2xl xl:max-w-6xl">
-            {anime?.title?.romaji?.length > 50
+            {anime?.title?.romaji?.length > 30
               ? truncateString(anime?.title?.english, 30)
               : anime?.title?.romaji}
           </h1>

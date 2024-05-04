@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
 
-const Iframe = ({ anime, className }) => {
+const Iframe = ({ anime, className, indicator }) => {
   const [vidError, setVidError] = useState(false);
   return (
     <>
-      {anime?.trailer?.id != null && !vidError ? (
+      {anime?.trailer?.id != null && !vidError && indicator ? (
         <ReactPlayer
           className={`-z-50 scale-[1.75] object-cover pointer-events-none cursor-none brightness-50 ${className}`}
           playing={true}
@@ -21,9 +21,9 @@ const Iframe = ({ anime, className }) => {
           onError={() => setVidError(true)}
         />
       ) : (
-        <div className="w-full h-[900px] relative">
+        <div className="w-full h-[100%] relative">
           <img
-            className="w-full h-full blur-sm scale-10 opacity-40 object-cover"
+            className="w-full h-full blur-lg scale-100 opacity-40 object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
             src={anime?.image}
             srcSet={`

@@ -51,7 +51,7 @@ const Info = ({ indicator }) => {
   return (
     <>
       <div className="overflow-hidden relative w-[100vw] h-[100vw] lg:h-[35vw]">
-        <Iframe anime={data} className="opacity-30" />
+        <Iframe anime={data} className="opacity-30" indicator={true} />
 
         <Link
           target="_blank"
