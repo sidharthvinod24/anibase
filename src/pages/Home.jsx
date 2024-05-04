@@ -35,7 +35,7 @@ const Home = () => {
       <Row
         rowID="5"
         qKey="favAnime"
-        title="Favourites"
+        title="All Time Favourites"
         fetchUrl={requests.requestPopularAnime}
       />
     </>

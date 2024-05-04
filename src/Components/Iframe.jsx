@@ -4,7 +4,6 @@ import ReactPlayer from "react-player";
 
 const Iframe = ({ anime, className }) => {
   const [vidError, setVidError] = useState(false);
-  console.log(vidError);
   return (
     <>
       {anime?.trailer?.id != null && !vidError ? (
@@ -24,7 +23,7 @@ const Iframe = ({ anime, className }) => {
       ) : (
         <div className="w-full h-[900px] relative">
           <img
-            className="w-full h-full blur-lg opacity-30 object-cover"
+            className="w-full h-full blur-sm scale-10 opacity-40 object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
             src={anime?.image}
             srcSet={`

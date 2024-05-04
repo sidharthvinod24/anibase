@@ -14,7 +14,7 @@ const fetchAnimeDataByID = async (id) => {
                 return data; // Return the data if suitable and fetched successfully
             }
         } catch (error) {
-            console.error(`Failed to fetch data with provider ${provider}:`, error);
+            console.log(`Failed to fetch data with provider ${provider}:`, error);
             // Optionally handle specific errors or retry logic here
         }
     }

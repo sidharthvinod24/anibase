@@ -10,8 +10,6 @@ const Row = ({ qKey, rowID, title, fetchUrl }) => {
   if (status === "pending") return <p>Loading...</p>;
   if (status === "error") return <p>Error :( </p>;
 
-  console.log(data);
-
   const slideLeft = () => {
     var el = document.getElementById("slider" + rowID);
     setSlider((el.scrollLeft -= 500));
@@ -29,7 +27,6 @@ const Row = ({ qKey, rowID, title, fetchUrl }) => {
     return slider >= maxScroll;
   };
 
-  console.log(slider);
   return (
     <>
       <h2 className="pl-9 text-white font-bold font-body lg:text-xl p-4">

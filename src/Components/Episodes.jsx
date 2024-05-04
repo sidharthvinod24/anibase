@@ -40,13 +40,11 @@ function calculateExpectedDate(targetTimestamp) {
 }
 const Episodes = ({ data, category, nextEp }) => {
   const targetTimestamp = nextEp?.airingTime;
-  console.log();
 
   const gogoanimeMapping = data?.mappings
     ?.find((element) => element.providerId === "gogoanime") // Assuming each element is an object with a 'name' property
     ?.id?.replace(/^\/category\//, "");
 
-  console.log(gogoanimeMapping);
   const { status: epStatus, data: epData } = useFetchEpisodesByID(data?.id);
 
   const [countdown, setCountdown] = useState(
@@ -65,7 +63,7 @@ const Episodes = ({ data, category, nextEp }) => {
 
   return (
     <>
-      {data?.episodes && (
+      {data?.episodes?.length > 0 && (
         <>
           <div className="flex items-center mt-10  space-x-4">
             <h1 className="capitalize text-white relative left-5 lg:left-28 font-bold w-64 font-body text-xl lg:text-3xl">

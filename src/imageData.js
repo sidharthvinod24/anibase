@@ -2,7 +2,6 @@ import axios from "axios"
 async function fetchImage(url) {
     const response = await fetch(`${url}?not-from-cache-please`)
     const blob = (await response.blob())
-    console.log(blob)
     const img = new Image()
     img.src = URL.createObjectURL(blob);
 

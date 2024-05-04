@@ -8,6 +8,7 @@ import Info from "./pages/Info";
 import NotFoundPage from "./pages/NotFoundPage";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Footer from "./Components/Footer";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/anime/:id" element={<Info indicator={"anime"} />} />
         <Route path="/manga/:id" element={<Info indicator={"manga"} />} />
-
+        <Route path="/search/:type" element={<Search />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

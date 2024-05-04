@@ -11,7 +11,7 @@ const fetchEpisodesByID = async (id) =>{
                 return response.data; // Return the data as soon as a successful response is received
             }
         } catch (error) {
-            console.error(`Failed to fetch from provider ${provider}:`, error);
+            console.log(`Failed to fetch from provider ${provider}:`, error);
             // Optionally handle the error, e.g., logging or conditional re-throwing
         }
     }

@@ -48,7 +48,6 @@ const Info = ({ indicator }) => {
     }
   };
 
-  console.log(dominantColor);
   return (
     <>
       <div className="overflow-hidden relative w-[100vw] h-[100vw] lg:h-[35vw]">
@@ -65,18 +64,13 @@ const Info = ({ indicator }) => {
           ></img>
         </Link>
       </div>
-      <div className="font-body text-center  h-auto w-full font-extrabold drop-shadow-xl text-white lg:text-left lg:absolute lg:top-40 xl:top-[25%] 2xl:top-[30%]">
-        <div
-          style={{
-            color: `${dominantColor}`,
-          }}
-          className="lg:absolute lg:-top-[30%] lg:left-1/4"
-        >
+      <div className="font-body text-center  h-auto w-full drop-shadow-xl text-white lg:text-left lg:absolute lg:top-40 xl:top-[25%] 2xl:top-[30%]">
+        <div className="lg:absolute lg:-top-[30%] lg:left-1/4 	">
           <div className="flex flex-col ">
-            <h1 className="-mt-6 text-[35px] ">
+            <h1 className="-mt-6 text-[25px] font-light ">
               {data?.season?.toUpperCase()} {data?.releaseDate}
             </h1>
-            <h1 className="text-[30px]">{data?.title?.romaji}</h1>
+            <h1 className="text-[32px] font-black ">{data?.title?.romaji}</h1>
           </div>
         </div>
         <div className="grid lg:gap-4 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 items-center justify-center gap-3 text-nowrap lg:absolute lg:top-24 xl:top-36 lg:left-1/4">

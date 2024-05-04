@@ -41,38 +41,42 @@ const CharacterRow = ({ data, category, indicator }) => {
 
   return (
     <>
-      <h1 className="capitalize text-white relative mt-10 left-5 lg:left-28 font-bold w-64 font-body text-xl  lg:text-3xl">
-        {category}
-      </h1>
-      <div className="grid gap-2 lg:gap-4 grid-cols-1 text-xs lg:text-sm lg:grid-cols-3 mt-1 font-bold lg:pl-20 ml-5 text-white font-body">
-        {results.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-row gap-3 justify-between bg-gray-900"
-          >
-            <LazyLoad>
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                to={`https://anilist.co/character/${item?.id}`}
+      {results?.length > 0 && (
+        <>
+          <h1 className="capitalize text-white relative mt-10 left-5 lg:left-28 font-bold w-64 font-body text-xl  lg:text-3xl">
+            {category}
+          </h1>
+          <div className="grid gap-2 lg:gap-4 grid-cols-1 text-xs lg:text-sm lg:grid-cols-3 mt-1 font-bold lg:pl-20 ml-5 text-white font-body">
+            {results.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-row gap-3 justify-between bg-gray-900"
               >
-                <img
-                  className="w-[60px] h-[82.3px] lg:h-[180px] lg:w-[125px] object-cover object-center hover:opacity-50"
-                  src={item?.image}
-                  alt={item?.id}
-                  loading="lazy"
-                />
-              </Link>
-            </LazyLoad>
+                <LazyLoad>
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    to={`https://anilist.co/character/${item?.id}`}
+                  >
+                    <img
+                      className="w-[60px] h-[82.3px] lg:h-[180px] lg:w-[125px] object-cover object-center hover:opacity-50"
+                      src={item?.image}
+                      alt={item?.id}
+                      loading="lazy"
+                    />
+                  </Link>
+                </LazyLoad>
 
-            <div className="flex flex-col mr-auto">
-              <h1 className="text-base">{item?.name?.userPreferred}</h1>
-              <h1 className="mt-auto text-base">{item?.role}</h1>
-            </div>
-            {indicator === "anime" && voiceActor(item)}
+                <div className="flex flex-col mr-auto">
+                  <h1 className="text-base">{item?.name?.userPreferred}</h1>
+                  <h1 className="mt-auto text-base">{item?.role}</h1>
+                </div>
+                {indicator === "anime" && voiceActor(item)}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </>
   );
 };

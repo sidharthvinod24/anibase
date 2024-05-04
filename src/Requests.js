@@ -45,7 +45,17 @@ const requests = {
     requestAnimeByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}?provider=${provider}`,
     requestMangaByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist-manga/info/${query}?provider=${provider}`,
     requestEpisodesByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/episodes/${query}?provider=${provider}`,
-    requestSearch: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?query=${query}&perPage=5`
+    requestSearch: (query,type) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?query=${query}&type=${type}&perPage=5`,
+    requestAdvancedSearch: (query,year,season,format,type,genres,pageParam) => {
+        let url = `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?type=${type}&sort=["POPULARITY_DESC"]&perPage=25&page=${pageParam}`;
+        if (query) url += `&query=${query}`
+        if (genres) url += `&genres=${genres}`;
+        if (year) url += `&year=${year}`;
+        if (season) url += `&season=${season}`;
+        if (format) url += `&format=${format}`;
+        return url;
+    }
+
 
 
     // requestRelatedImageByID: (query) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}`

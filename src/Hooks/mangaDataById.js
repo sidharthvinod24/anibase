@@ -12,7 +12,7 @@ const fetchMangaDataByID = async (id) =>{
                 return data; // Return the first non-null data
             }
         } catch (error) {
-            console.error(`Error fetching data with provider ${provider}:`, error);
+            console.log(`Error fetching data with provider ${provider}:`, error);
         }
     }
     return { error: "Not Available" }; 
