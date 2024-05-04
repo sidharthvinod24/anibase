@@ -5,10 +5,16 @@ import useDebounce from "../Hooks/debounce";
 import { FaSearch, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+};
 const NavSearchBar = () => {
   const searchInputRef = useRef(null);
   const navigate = useNavigate();
-
+  const allResultsButtonRef = useRef(null);
   const modalRef = useRef(null);
   const inputRef = useRef(null);
   const [search, setSearch] = useState("");
@@ -33,6 +39,12 @@ const NavSearchBar = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  useEffect(() => {
+    if (data && data.length > 0 && isMobileDevice()) {
+      allResultsButtonRef.current?.click(); // Programmatically click the 'All Results' button on mobile devices
+    }
+  }, [data]);
 
   return (
     <>
@@ -129,6 +141,7 @@ const NavSearchBar = () => {
                 <div className="flex justify-end">
                   <button
                     onClick={() => {
+                      ref = { allResultsButtonRef };
                       modalRef.current.close();
                       navigate(
                         `/search/${type}?query=${debouncedSearchTerm}&year=${""}&season=${""}`
