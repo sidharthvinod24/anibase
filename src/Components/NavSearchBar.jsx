@@ -83,7 +83,7 @@ const NavSearchBar = () => {
             </div>
 
             {data && data.length > 0 ? (
-              <div className=" w-full max-h-[100vh] bg-base-300 text-white shadow-lg mr-1 overflow-y-scroll rounded-md">
+              <div className=" w-full max-h-[300vh] bg-base-300 text-white shadow-lg mr-1 overflow-y-scroll rounded-md">
                 {status === "pending" && (
                   <div className="text-white">Loading....</div>
                 )}

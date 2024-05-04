@@ -45,7 +45,7 @@ const requests = {
     requestAnimeByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/info/${query}?provider=${provider}`,
     requestMangaByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist-manga/info/${query}?provider=${provider}`,
     requestEpisodesByID: (query,provider) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/episodes/${query}?provider=${provider}`,
-    requestSearch: (query,type) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?query=${query}&type=${type}&perPage=10`,
+    requestSearch: (query,type) => `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?query=${query}&type=${type}&perPage=7`,
     requestAdvancedSearch: (query,year,season,format,type,genres,pageParam) => {
         let url = `https://anime-api-nine-ochre.vercel.app/meta/anilist/advanced-search?type=${type}&sort=["POPULARITY_DESC"]&perPage=25&page=${pageParam}`;
         if (query) url += `&query=${query}`
