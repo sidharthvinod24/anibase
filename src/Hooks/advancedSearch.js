@@ -22,7 +22,6 @@ export function useFetchAdvancedSearch (query,year,season,format,type,genres){
         queryFn: ({pageParam = 1}) =>  fetchAdvancedSearch(query,year,season,format,type,genres,pageParam),
         getNextPageParam: (lastPage) => {
             if (lastPage.hasNextPage === true){
-                console.log({lastPage})
                 const nextPage = lastPage.currentPage + 1
                 return  nextPage
             }    

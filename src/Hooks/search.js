@@ -8,7 +8,6 @@ const fetchSearch = async (searchQuery,type) =>{
         const data = response.data.results;
         const unique = [...new Map(data.map(item =>
             [item['id'], item])).values()];
-        console.log(unique)
         return unique
 
     } catch (error) {
